@@ -71,3 +71,11 @@ An enterprise-grade, multi-site infrastructure topology engineered inside Cisco 
 2. Delete the physical fiber port link or shut down **`HQ-WAN-EDGE1`** entirely.
 3. **Observation:** The internal campus network switches re-converge using OSPF path adjustments. Simultaneously, the ISP router recognizes the loss of the primary route, automatically activates its **floating static route (AD 10)**, and drops the incoming branch data traffic straight down into the backup gateway **`HQ-WAN-EDGE2`**, keeping your remote office seamlessly online.
 
+## 🔐 Laboratory Access Credentials
+To verify and interact with the live command-line interfaces (CLI) of the core switches and edge routing nodes, utilize the standardized non-production administrative profile embedded within the topology architecture:
+
+- **SSH Username:** `admin`
+- **Password / Enable Secret:** `CiscoPass123!`
+- **Cryptographic Access Control:** Enforced via `transport input ssh` on all Virtual Terminal Lines (`line vty 0 15`), with legacy unencrypted Telnet protocols explicitly disabled.
+
+
