@@ -46,6 +46,17 @@ This repository contains the complete production-grade configuration scripts for
 
 ---
 
+## 🔑 Topology Access Credentials
+
+To access and audit the operational command lines (CLI) of the switches and routers within the simulation workspace, use the following standardized cryptographic access credentials:
+
+* **Administrative Username:** `admin`
+* **Secure VTY / Console Password:** `CiscoPass123!`
+* **Privileged EXEC Mode (Enable Secret):** `CiscoPass123!`
+
+*Note: All local database profiles have been symmetrically hardened with background cryptographic reversible hash formatting utilizing `service password-encryption` to align with enterprise security baseline compliance standards.*
+
+
 ## 🛠️ Deployment & Verification Commands
 
 To verify route injection, address translation tables, and security enforcement across this topology, utilize the following Cisco IOS diagnostic commands:
