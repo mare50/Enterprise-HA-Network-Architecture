@@ -32,19 +32,20 @@ This repository contains the complete production-grade configuration scripts for
 
 ---
 
-## 📊 Complete Subnet & SVI Addressing Matrix
+## 📊 Complete Subnet, Gateway, & Routing Boundary Matrix
 
-| Device Identity | Management IP / SVI | Subnet Mask | Default Gateway | Primary Functional Role |
+| Device Identity | Local Interface | IP Address / Subnet Mask | Functional Boundary / Gateway | Architectural Subnet Role |
 | :--- | :--- | :--- | :--- | :--- |
-| **HQ-CORE-SW1** | `192.168.30.2` (V30) | `255.255.255.0` | *N/A (L3 Routing)* | Primary Gateway (IT/HR/Server Farm) |
-| **HQ-CORE-SW2** | `192.168.30.3` (V30) | `255.255.255.0` | *N/A (L3 Routing)* | Backup Gateway / Redundant Transit |
-| **ACCESS-SW1** | `192.168.10.251` (V10) | `255.255.255.0` | `192.168.10.1` | HQ IT Access Switch Layer |
-| **ACCESS-SW2** | `192.168.20.252` (V20) | `255.255.255.0` | `192.168.20.1` | HQ HR Access Switch Layer |
-| **ACCESS-SW3** | `192.168.30.253` (V30) | `255.255.255.0` | `192.168.30.1` | Corporate Server Farm Access Node |
-| **BR-EDGE** | `192.168.100.1` (Sub) | `255.255.255.0` | *N/A (WAN Route)* | Branch Router Perimeter Gateway |
-| **BR-DIST-SW1** | `192.168.100.2` (V100) | `255.255.255.0` | `192.168.100.1` | Branch Layer 2 Access Switch |
+| **HQ-CORE-SW1** | `Vlan10` <br> `Vlan20` <br> `Vlan30` <br> `Po1` | `192.168.10.2 /24` <br> `192.168.20.2 /24` <br> `192.168.30.2 /24` <br> *Layer 2 Trunk* | **HSRP VIP:** `192.168.10.1` <br> **HSRP VIP:** `192.168.20.1` <br> **HSRP VIP:** `192.168.30.1` | **Primary Active Gateway** <br> IT Subnet Gateway <br> HR Subnet Gateway <br> Server Farm SVI / Core Backbone |
+| **HQ-CORE-SW2** | `Vlan10` <br> `Vlan20` <br> `Vlan30` <br> `Po1` | `192.168.10.3 /24` <br> `192.168.20.3 /24` <br> `192.168.30.3 /24` <br> *Layer 2 Trunk* | **HSRP VIP:** `192.168.10.1` <br> **HSRP VIP:** `192.168.20.1` <br> **HSRP VIP:** `192.168.30.1` | **Hot Standby Gateway** <br> IT Subnet Redundancy <br> HR Subnet Redundancy <br> Server Farm Redundancy / Core Backbone |
+| **HQ-WAN-EDGE1**| `Gig0/1` <br> `Gig0/2` <br> `Gig0/0` <br> `Gig0/3/0` | `192.168.1.1 /30` <br> `192.168.1.5 /30` <br> `192.168.1.9 /30` <br> `203.0.113.2 /30` | **OSPF Link** <br> **OSPF Link** <br> **OSPF Link** <br> **Next-Hop:** `203.0.113.1` | **HQ Perimeter Edge 1** <br> Transit to HQ-CORE-SW1 <br> Transit to HQ-CORE-SW2 <br> Transit to HQ-WAN-EDGE2 <br> Public WAN Internet Uplink (NAT Outside) |
+| **HQ-WAN-EDGE2**| `Gig0/1` <br> `Gig0/2` <br> `Gig0/0` <br> `Gig0/3/0` | `192.168.1.13 /30` <br> `192.168.1.17 /30` <br> `192.168.1.10 /30` <br> `203.0.113.6 /30` | **OSPF Link** <br> **OSPF Link** <br> **OSPF Link** <br> **Next-Hop:** `203.0.113.5` | **HQ Perimeter Edge 2** <br> Transit to HQ-CORE-SW2 <br> Transit to HQ-CORE-SW1 <br> Transit to HQ-WAN-EDGE1 <br> Public WAN Internet Uplink (NAT Outside) |
+| **BR-EDGE**     | `Gig0/0/0` <br> `Gig0/0/1.40` <br> `Gig0/0/1.50` <br> `Gig0/0/1.100` | `203.0.113.10 /30` <br> `192.168.40.1 /24` <br> `192.168.50.1 /24` <br> `192.168.100.1 /24` | **Next-Hop:** `203.0.113.9` <br> *Direct Router Gateway* <br> *Direct Router Gateway* <br> *Direct Router Gateway* | **Branch Edge Router** <br> Public WAN Uplink (NAT Outside) <br> Branch Main LAN SVI Gateway <br> Branch Local Devices SVI Gateway <br> In-Band Branch Management Gateway |
+| **ACCESS-SW1**  | `Vlan10` | `192.168.10.251 /24` | **Gateway:** `192.168.10.1` | HQ IT Access Layer Management IP |
+| **ACCESS-SW2**  | `Vlan20` | `192.168.20.252 /24` | **Gateway:** `192.168.20.1` | HQ HR Access Layer Management IP |
+| **ACCESS-SW3**  | `Vlan30` | `192.168.30.253 /24` | **Gateway:** `192.168.30.1` | Server Farm Access Layer Management IP |
+| **BR-DIST-SW1** | `Vlan100` | `192.168.100.2 /24` | **Gateway:** `192.168.100.1` | Branch Layer 2 Switch Management IP |
 
----
 
 ## 🔑 Topology Access Credentials
 
