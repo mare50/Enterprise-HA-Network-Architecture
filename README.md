@@ -81,6 +81,6 @@ show ip ssh
 ```
 
 ---
-*Maintained by [Your Name/GitHub Username] — Verified fully functional on Cisco Packet Tracer.*
+*Maintained by Marko Cvetković — Verified fully functional on Cisco Packet Tracer.*
 
 
