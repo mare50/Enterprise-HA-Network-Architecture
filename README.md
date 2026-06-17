@@ -84,8 +84,6 @@ show port-security interface [interface_id]
 show ip ssh
 
 ! Validate SNMPv2c Telemetry & Syslog Status
-show snmp
-show snmp community
 show logging
 ```
 
