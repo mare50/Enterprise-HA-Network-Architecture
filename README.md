@@ -28,7 +28,7 @@ This repository contains the complete production-grade configuration scripts for
 * **VTY Access-Class Control:** Standardized `RESTRICT_SSH` control filters applied directly to the virtual terminal lines (`line vty 0 15`) of all core switches, routers, and access blocks. This strictly limits cryptographic **SSHv2 RSA** administrative access to the **HQ IT Subnet (VLAN 10)** while dynamically dropping unauthenticated network requests at the TCP border.
 * **Layer 2 Access Controls:** Enforced strict hardware **Sticky Port-Security** profiles across active end-user access ports, disabled unused interfaces, and applied **BPDU Guard** / **PortFast** on critical server farm downlinks.
 * **Symmetrical NAT Exceptions:** Programmed top-down extended access control lists (`NAT_CONTROL` / `BR_NAT_CONTROL`) to completely bypass network translation layers for all internal cross-site traffic tunnels, ensuring seamless data symmetry.
-* **Global Cryptographic Compliance:** Enforced global `service password-encryption` to mask local database profiles and active secrets from casual view.* 
+* **Global Cryptographic Compliance:** Enforced global `service password-encryption` to mask local database profiles and active secrets from casual view.
 
 ---
 
