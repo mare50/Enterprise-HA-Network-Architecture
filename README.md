@@ -63,6 +63,10 @@ To access and audit the operational command lines (CLI) of the switches and rout
 
 To verify route injection, address translation tables, and security enforcement across this topology, utilize the following Cisco IOS diagnostic commands:
 
+## 🛠️ Deployment & Verification Commands
+
+To verify route injection, address translation tables, infrastructure logging, and security enforcement across this topology, utilize the following Cisco IOS diagnostic commands:
+
 ```text
 ! Verify Layer 3 Path Symmetrical Convergence
 show ip route
@@ -78,6 +82,11 @@ show port-security interface [interface_id]
 
 ! Check Management Plane Gatekeeper Isolation
 show ip ssh
+
+! Validate SNMPv2c Telemetry & Syslog Status
+show snmp
+show snmp community
+show logging
 ```
 
 ---
