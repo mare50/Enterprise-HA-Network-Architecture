@@ -58,11 +58,6 @@ To access and audit the operational command lines (CLI) of the switches and rout
 
 *Note: All local database profiles have been symmetrically hardened with background cryptographic reversible hash formatting utilizing `service password-encryption` to align with enterprise security baseline compliance standards.*
 
-
-## 🛠️ Deployment & Verification Commands
-
-To verify route injection, address translation tables, and security enforcement across this topology, utilize the following Cisco IOS diagnostic commands:
-
 ## 🛠️ Deployment & Verification Commands
 
 To verify route injection, address translation tables, infrastructure logging, and security enforcement across this topology, utilize the following Cisco IOS diagnostic commands:
