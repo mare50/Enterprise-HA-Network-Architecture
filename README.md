@@ -83,7 +83,7 @@ show port-security interface [interface_id]
 ! Check Management Plane Gatekeeper Isolation
 show ip ssh
 
-! Validate SNMPv2c Telemetry & Syslog Status
+! Validate Active Syslog Parameters & Trap Log Redirection Targets
 show logging
 ```
 
