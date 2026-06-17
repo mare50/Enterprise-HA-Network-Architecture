@@ -29,7 +29,7 @@ This repository contains the complete production-grade configuration scripts for
 * **Layer 2 Access Controls:** Enforced strict hardware **Sticky Port-Security** profiles across active end-user access ports, disabled unused interfaces, and applied **BPDU Guard** / **PortFast** on critical server farm downlinks.
 * **Symmetrical NAT Exceptions:** Programmed top-down extended access control lists (`NAT_CONTROL` / `BR_NAT_CONTROL`) to completely bypass network translation layers for all internal cross-site traffic tunnels, ensuring seamless data symmetry.
 * **Global Cryptographic Compliance:** Enforced global `service password-encryption` to mask local database profiles and active secrets from casual view.
-
+* **Role-Based SNMPv2c Network Telemetry Protection: Hardened network-wide infrastructure monitoring lines by implementing explicit segregation of telemetry access; restricted baseline Network Management Station (NMS) metrics to a Read-Only (RO) community string (Corporate1), while isolating administrative configuration capabilities behind a strict Read-Write (RW) credential block (Corporate2).
 ---
 
 ## 📊 Complete Subnet, Gateway, Loopback & Routing Boundary Matrix
