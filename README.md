@@ -2,7 +2,7 @@
 ### Fully Redundant Tier-3 Campus Core & Full-Mesh OSPF WAN Topology
 
 ## 📌 Project Overview
-This repository contains the complete production-grade configuration scripts for a multi-site enterprise network infrastructure. The architecture features a highly available dual-headquarters campus network integrated with a remote branch office over a full-mesh WAN backplane. The design prioritizes zero-single-point-of-failure redundancy, sub-second failover path convergence, and strict security hardening across the access, distribution, core, and perimeter layers.
+This repository contains the complete configuration scripts for a multi-site enterprise network infrastructure. The architecture features a highly available dual-headquarters campus network integrated with a remote branch office over a full-mesh WAN backplane. The design prioritizes zero-single-point-of-failure redundancy, sub-second failover path convergence, and strict security hardening across the access, distribution, core, and perimeter layers.
 
 ---
 
