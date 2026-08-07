@@ -4,7 +4,7 @@
 ## 📌 Project Overview
 This repository contains the complete configuration scripts for a multi-site enterprise network infrastructure. The architecture features a highly available dual-headquarters campus network connected to a remote branch office via a full-mesh WAN backplane. 
 
-The design ensures zero single points of failure, provides sub-second failover path convergence, and implements strict security hardening across the access, distribution, core, and perimeter layers.
+The design ensures rapid failover using HSRP and optimized OSPF metrics and implements strict security hardening across the access, distribution, core, and perimeter layers.
 
 ---
 
@@ -29,7 +29,7 @@ The design ensures zero single points of failure, provides sub-second failover p
 
 * **NAT Exceptions:** Configured extended access control lists (`NAT_CONTROL` / `BR_NAT_CONTROL`) to bypass network translation for all internal cross-site traffic, ensuring consistent data flow.
 * **VTY Access Control:** Applied standard `RESTRICT_SSH` filters directly to the virtual terminal lines (`line vty 0 15`) of all core switches, routers, and access switches. This restricts **SSHv2 RSA** administrative access to the **HQ IT Subnet (VLAN 10)** and drops unauthorized connection requests.
-* **SNMPv2c Telemetry Protection:** Hardened infrastructure monitoring by separating telemetry access; restricted baseline Network Management Station (NMS) metrics to a Read-Only (RO) community string (`Corporate1`), while isolating configuration capabilities behind a Read-Write (RW) credential (`Corporate2`).
+* **SNMPv2c Telemetry Protection:** Configured SNMPv2c using separate read-only and read-write community strings for monitoring and administration.
 * **Layer 2 Access Controls:** Enforced hardware-based **Sticky Port-Security** on active user ports, disabled unused interfaces, and applied **BPDU Guard** and **PortFast** on server farm downlinks.
 * **DHCP Snooping Mitigation:** Implemented DHCP Snooping across core distribution downlinks and server access hosts; mapped paths to explicit Trusted Boundaries (`ip dhcp snooping trust`) to block rogue DHCP servers and address starvation attacks.
 * **VLAN-Hopping Mitigation:** Prevented Layer 2 double-tagging and unauthorized trunk injection attacks by moving all trunk interconnections away from the default VLAN 1 to a dedicated, non-routable Isolated Native VLAN 99.
