@@ -3,7 +3,6 @@
 
 ## 📌 Project Overview
 This repository contains the complete configuration scripts for a multi-site enterprise network infrastructure. The architecture features a highly available dual-headquarters campus network connected to a remote branch office via a full-mesh WAN backplane. 
-
 The design ensures rapid failover using HSRP and optimized OSPF metrics and implements strict security hardening across the access, distribution, core, and perimeter layers.
 
 ---
