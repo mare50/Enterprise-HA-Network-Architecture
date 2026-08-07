@@ -1,4 +1,4 @@
-# Dual-HQ & Branch Enterprise Network Architecture
+# Enterprise Cisco Campus Network
 ### Fully Redundant Tier-3 Campus Core & Full-Mesh OSPF WAN Topology
 
 ## 📌 Project Overview
